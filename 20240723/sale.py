@@ -10,6 +10,8 @@ unit = {"S" : 5, "G" : 10, "V" : 15}
 def solution(price,grade):
     #unit에서 grade에  해당하는 값을 꺼내자
     rate = unit[grade]
+    # if 65 <= x <= 65 + 26:
+
     #price값을 계산하다
     price = price * (1 - rate / 100)
     # if grade == "S":
