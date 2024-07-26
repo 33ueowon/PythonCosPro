@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+
+def solution(height):
+    count = 0
+    for i in range(len(height)):
+        for j in range(len(height[i])):
+            is_top, is_bottom, is_left, is_right = True, True, True, True
+            
+            if i - 1 >= 0 and height[i][j] >= height[i - 1][j]:
+                is_top = False
+            if i + 1 < len(height) and height[i][j] >= height[i + 1][j]:
+                is_bottom = False
+            if j - 1 >= 0 and height[i][j] >= height[i][j - 1]:
+                is_left = False
+            if j + 1 < len(height[i]) and height[i][j] >= height[i][j + 1]:
+                is_right = False
+                
+            if is_top and is_bottom and is_left and is_right:
+                count += 1
+
+    return count
+height = [[3, 6, 2, 8], [7, 3, 4, 2], [8, 6, 7, 3], [5, 3, 2, 9]]
+ret = solution(height)
+
+print("solution 함수의 반환 값은", ret, "입니다.")
